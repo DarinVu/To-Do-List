@@ -1,0 +1,47 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="site-container">
+        <div class="hero-container">
+            <div class="title">To Do List</div>
+            <div class="date">
+                <%= new Date().getMonth() + 1%> /
+                <%= new Date().getDate() %> /
+                <%= new Date().getFullYear()%>
+            </div>
+        </div>
+        <div class="list-container">
+            <% for (var i=0; i < taskList.length; i++) {%>
+            <div class="task-box">
+                
+                    <form action="/done">
+                            <input type="checkbox" name="checker" id="todo1" class="checkbox">
+                            <label for="todo1" class="task">
+                                <%= taskList[i] %>
+                            </label><br>
+                    </form>
+                
+            </div>
+            <div class="horizontal-bar"><hr></div>
+            <% } %>
+            <div>
+                <form action="/add" method="POST">
+                    <div class="add-container">
+                        <div>
+                            <input id="inputAdd" name="inputAdd" type="text" placeholder="Add Task">
+                        </div>
+                        <div>
+                            <button id="add">Add</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+
